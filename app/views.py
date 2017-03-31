@@ -1,6 +1,6 @@
 from app import app
 from flask import render_template, jsonify, request
-from app import login_model
+from app import login_model, getUser
 
 
 @app.route('/')
@@ -45,4 +45,13 @@ def check_register():
     new_register = login_model.login_model(username=username, passwords=passwords)
     check_result = new_register.register_callback()
     res = jsonify({'result': check_result})
+    return res
+
+
+@app.route('/getUserInfo',methods=["POST"])
+def getUserInfo():
+    username = request.form["name"]
+    new_getUser = getUser.getUser(username=username)
+    userid,uname,utype = new_getUser.getUserInfo_CallBack()
+    res = jsonify({'userid': userid, "uname": uname, "utype": utype})
     return res

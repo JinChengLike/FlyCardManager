@@ -6,6 +6,7 @@ $(document).ready(function() {
         },
         function(data){
             if(data.result==0){
+                localStorage.username = $("#username").val();
                 window.location.href = "/list_main"
             }
             else{
