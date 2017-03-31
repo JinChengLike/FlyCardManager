@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>工单管理系统</title>
+    <script src="/static/js/jquery-3.1.1.min.js"></script>
+    <script src="/static/js/home_list.js"></script>
+    <script src="/static/js/tab.js"></script>
+    <script src="/static/css/dist/js/bootstrap.min.js"></script>
+    <link href="/static/css/dist/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+    <link href="/static/css/dist/css/bootstrap-theme.min.css" rel="stylesheet" type="text/css"/>
+    <link href="/static/css/home.css" rel="stylesheet" type="text/css"/>
+    <link href="/static/css/tab.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div class="container" id="nav">
+    <h2>欢迎</h2>
+    <ul id="myTab" class="nav nav-pills" role="tablist">
+        <li class="active"><a data-toggle="tab">主页</a></li>
+        <li><a id="creat" data-toggle="tab">工卡创建</a></li>
+        <li><a id="show" data-toggle="tab">工卡列表</a></li>
+        <li><a id="doing" data-toggle="tab">正在执行的工卡</a></li>
+    </ul>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-4">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    个人信息
+                </div>
+                <div class="panel-body">
+                    <label>用户名:</label>&nbsp<span>金程</span><br>
+                    <label>工号:</label>&nbsp<span>001824</span><br>
+                    <label>职务:</label>&nbsp<span>施工者</span><br>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-1"></div>
+        <div class="col-md-4">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    待办事项
+                </div>
+                <div class="panel-body">
+                    <dl>
+                        <dd>002233工单收到反馈</dd>
+                        <dd>002233工单收到反馈</dd>
+                        <dd>002233工单收到反馈</dd>
+                        <dd>002233工单等待你的执行</dd>
+                        <dd>002233工单请准备材料</dd>
+                    </dl>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-2"></div>
+
+    </div>
+</div>
+
+</body>
+</html>

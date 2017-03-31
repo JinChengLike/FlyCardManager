@@ -1,0 +1,14 @@
+#nav{
+    border-bottom:solid 3px black;
+    padding-bottom:5px;
+    margin-bottom:20px;
+}
+
+#tab-show{
+    margin:5px 50px 100px 50px;
+}
+
+label{
+    font-weight:bold;
+    color:brown
+}

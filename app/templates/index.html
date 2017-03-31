@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>欢迎来到工卡管理系统</title>
+    <script src="/static/js/jquery-3.1.1.min.js"></script>
+    <script src="/static/js/index.js"></script>
+    <script src="/static/css/dist/js/bootstrap.min.js"></script>
+    <link href="/static/css/dist/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+    <link href="/static/css/dist/css/bootstrap-theme.min.css" rel="stylesheet" type="text/css"/>
+    <link href="/static/css/index.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div style="position:absolute; width:100%; height:100%; z-index:-1; left:0; top:0;">
+    <img src="/static/images/background.jpeg" height="100%" width="100%" style="left:0; top:0;">
+</div>
+<center><h1>欢迎来到工卡管理系统</h1></center>
+<div class="container">
+    <div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-2">
+            <button type="button" class="btn btn-primary btn-lg btn-block" data-toggle="modal" data-target="#register">
+                注册
+            </button>
+            <!--注册模态框-->
+            <div class="modal fade" id="register" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+                 aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                            <h4 class="modal-title" id="myModalLabel">注册</h4>
+                        </div>
+                        <div class="modal-body">
+                            <form class="form-horizontal" role="form">
+                                <div class="form-group">
+                                    <label for="uname" class="col-sm-2 control-label">账户名</label>
+                                    <div class="col-sm-6">
+                                        <input type="text" class="form-control" id="uname" placeholder="请输入账户名">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="upass" class="col-sm-2 control-label">密码</label>
+                                    <div class="col-sm-6">
+                                        <input type="password" class="form-control" id="upass" placeholder="请输入密码">
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                            <button type="button" class="btn btn-primary" id = "btn-reg">注册</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="col-md-2">
+            <button type="button" class="btn btn-primary btn-lg btn-block" data-toggle="modal" data-target="#login">登录
+            </button>
+            <!--登录模态框-->
+            <div class="modal fade" id="login" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+                 aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                            <h4 class="modal-title">登录</h4>
+                        </div>
+                        <div class="modal-body">
+                            <form class="form-horizontal" role="form">
+                                <div class="form-group">
+                                    <label for="username" class="col-sm-2 control-label">账户名</label>
+                                    <div class="col-sm-6">
+                                        <input type="text" class="form-control" id="username" placeholder="请输入账户名">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="userpass" class="col-sm-2 control-label">密码</label>
+                                    <div class="col-sm-6">
+                                        <input type="password" class="form-control" id="userpass" placeholder="请输入密码">
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                            <button type="button" class="btn btn-primary" id="btn-login">登录</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4"></div>
+    </div>
+</div>
+</body>
+</html>

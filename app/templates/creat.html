@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>工卡创建</title>
+    <script src="/static/js/jquery-3.1.1.min.js"></script>
+    <script src="/static/js/creat.js"></script>
+    <script src="/static/js/tab.js"></script>
+    <script src="/static/css/dist/js/bootstrap.min.js"></script>
+    <link href="/static/css/dist/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+    <link href="/static/css/dist/css/bootstrap-theme.min.css" rel="stylesheet" type="text/css"/>
+    <link href="/static/css/creat.css" rel="stylesheet" type="text/css"/>
+    <link href="/static/css/tab.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div class="container" id="nav">
+    <h2>欢迎</h2>
+    <ul id="myTab" class="nav nav-pills" role="tablist">
+        <li><a id="main" data-toggle="tab">主页</a></li>
+        <li class="active"><a id="creat" data-toggle="tab">工卡创建</a></li>
+        <li><a id="show" data-toggle="tab">工卡列表</a></li>
+        <li><a id="doing" data-toggle="tab">正在执行的工卡</a></li>
+    </ul>
+</div>
+<div class="container" id="creat-form">
+    <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-4">
+            <div style="margin:50px 0px 100px 0px">
+                <form class="bs-example bs-example-form" role="form">
+                    <div class="input-group">
+                        <span class="input-group-addon">执行日期</span>
+                        <input type="text" class="form-control" placeholder="20XX-XX-XX">
+                    </div>
+                    <br>
+                    <div class="input-group">
+                        <span class="input-group-addon">施工人</span>
+                        <input type="text" class="form-control" placeholder="请输入施工者姓名">
+                    </div>
+                    <br>
+                    <div class="input-group">
+                        <span class="input-group-addon">所需工时</span>
+                        <input type="text" class="form-control">
+                        <span class="input-group-addon">小时</span>
+                    </div>
+                    <br>
+                    <div class="input-group">
+                        <span class="input-group-addon">机型</span>
+                        <input type="text" class="form-control" placeholder="请输入机型">
+                    </div>
+                    <br>
+                    <div class="input-group">
+                        <span class="input-group-addon">航班号</span>
+                        <input type="text" class="form-control" placeholder="请输入航班号">
+                    </div>
+                    <br>
+                    <div class="input-group">
+                        <span class="input-group-addon">维修区域</span>
+                        <input type="text" class="form-control" placeholder="请输入维修区域">
+                    </div>
+                    <br>
+                    <div class="input-group">
+                        <span class="input-group-addon">待维修部件</span>
+                        <input type="text" class="form-control" placeholder="请输入待维修部件">
+                    </div>
+                    <br>
+                    <div class="input-group">
+                        <span class="input-group-addon">所需航材</span>
+                        <input type="text" class="form-control" placeholder="请输入所需要的航材名">
+                    </div>
+                    <br>
+                    <div class="input-group">
+                        <span class="input-group-addon">所需工具</span>
+                        <input type="text" class="form-control" placeholder="请输入需要的工具">
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div style="margin:50px 0px 0px 0px">
+                <form role="form">
+                    <div class="form-group">
+                        <label for="work-detail">工作要求</label>
+                        <textarea class="form-control" rows="3" id="work-detail"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="work-notice">注意事项</label>
+                        <textarea class="form-control" rows="3" id="work-notice"></textarea>
+                    </div>
+                    <button type="button" class="btn btn-primary btn-sm">保存</button>
+                </form>
+
+            </div>
+        </div>
+    </div>
+
+</div>
+</body>
+</html>
