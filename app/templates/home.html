@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>工单管理系统</title>
     <script src="/static/js/jquery-3.1.1.min.js"></script>
+    <script src="/static/js/factory.js"></script>
     <script src="/static/js/home_list.js"></script>
     <script src="/static/js/tab.js"></script>
     <script src="/static/css/dist/js/bootstrap.min.js"></script>
@@ -32,7 +33,7 @@
                     个人信息
                 </div>
                 <div class="panel-body">
-                    <label>用户名:</label>&nbsp<span id="username"></span><br>
+                    <label>用户名:</label>&nbsp<span id="uname"></span><br>
                     <label>工号:</label>&nbsp<span id="uid"></span><br>
                     <label>职务:</label>&nbsp<span id="type"></span><br>
                 </div>
@@ -52,6 +53,85 @@
         </div>
         <div class="col-md-2"></div>
 
+    </div>
+</div>
+<div class="modal fade" id="login" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">修改工卡</h4>
+            </div>
+            <div class="modal-body">
+                <form class="bs-example bs-example-form" role="form">
+                    <div class="input-group">
+                        <label class="input-group-addon">执行日期</label>
+                        <input type="text" class="form-control" placeholder="20XX-XX-XX">
+                    </div>
+                    <br>
+                    <div class="input-group">
+                        <label class="input-group-addon">施工人</label>
+                        <input type="text" class="form-control" placeholder="请输入施工者姓名">
+                    </div>
+                    <br>
+                    <div class="input-group">
+                        <label class="input-group-addon">所需工时</label>
+                        <input type="text" class="form-control">
+                        <label class="input-group-addon">小时</label>
+                    </div>
+                    <br>
+                    <div class="input-group">
+                        <label class="input-group-addon">机型</label>
+                        <input type="text" class="form-control" placeholder="请输入机型">
+                    </div>
+                    <br>
+                    <div class="input-group">
+                        <label class="input-group-addon">航班号</label>
+                        <input type="text" class="form-control" placeholder="请输入航班号">
+                    </div>
+                    <br>
+                    <div class="input-group">
+                        <label class="input-group-addon">维修区域</label>
+                        <input type="text" class="form-control" placeholder="请输入维修区域">
+                    </div>
+                    <br>
+                    <div class="input-group">
+                        <label class="input-group-addon">待维修部件</label>
+                        <input type="text" class="form-control" placeholder="请输入待维修部件">
+                    </div>
+                    <br>
+                    <div class="input-group">
+                        <label class="input-group-addon">所需航材</label>
+                        <input type="text" class="form-control" placeholder="请输入所需要的航材名">
+                    </div>
+                    <br>
+                    <div class="input-group">
+                        <label class="input-group-addon">所需工具</label>
+                        <input type="text" class="form-control" placeholder="请输入需要的工具">
+                    </div>
+                </form>
+                <br>
+                <form role="form" style="margin:20px">
+                    <div class="form-group">
+                        <label for="work-detail">工作要求</label>
+                        <textarea class="form-control" rows="3" id="work-detail"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="work-notice">注意事项</label>
+                        <textarea class="form-control" rows="3" id="work-notice"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="return-message">反馈信息</label>
+                        <textarea class="form-control" rows="3" id="return-message"></textarea>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                <button type="button" class="btn btn-primary" id="btn-login">确定</button>
+            </div>
+        </div>
     </div>
 </div>
 

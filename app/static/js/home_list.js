@@ -1,26 +1,6 @@
-function handle_type(utype){
-    var a;
-    if(utype = 1){
-        localStorage.utype = 1;
-        a = "工单管理员";
-        $("#show").hide();
-        $("#doing").hide();
-    }
-    else if(utype = 2){
-        localStorage.utype = 2;
-        a = "仓库管理员";
-    }
-    else if(utype =3){
-        localStorage.utype = 3;
-        a = "施工者";
-    }
-    return a;
-}
-
-
 $(document).ready(function(){
     username = localStorage.username;
-    $("#username").text(username);
+    $("#uname").text(username);
     $.post("/getUserInfo",{
         name:username
     },function(data){
@@ -43,13 +23,13 @@ $(document).ready(function(){
             str = data[i]
             temp = str.split(",");
             if(localStorage.utype == 1){
-                html = html + "<dd>【"+ temp[4] + "】工卡收到反馈</dd>";
+                html = html + "<dd>【"+ temp[4] + "】工卡收到反馈 <a data-toggle='modal' data-target='#login'>查看</a></dd>";
             }
             else if(localStorage.utype == 2){
-                html = html + "<dd>【"+ temp[4] + "】工卡需要准备航材</dd>";
+                html = html + "<dd>【"+ temp[4] + "】工卡需要准备航材 <a data-toggle='modal' data-target='#login'>查看</a></dd>";
             }
             else if(localStorage.utype == 3){
-                html = html +"<dd>【"+ temp[4] + "】工卡等待执行</dd>";
+                html = html +"<dd>【"+ temp[4] + "】工卡等待执行 <a data-toggle='modal' data-target='#login'>查看</a></dd>";
             }
         }
         $("dl").html(html);
