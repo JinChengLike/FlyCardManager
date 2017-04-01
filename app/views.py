@@ -38,7 +38,7 @@ def check_login():
     return res
 
 
-@app.route('/register',methods=['POST'])
+@app.route('/register', methods=['POST'])
 def check_register():
     username = request.form["username"]
     passwords = request.form["password"]
@@ -48,10 +48,18 @@ def check_register():
     return res
 
 
-@app.route('/getUserInfo',methods=["POST"])
+@app.route('/getUserInfo', methods=["POST"])
 def getUserInfo():
     username = request.form["name"]
     new_getUser = getUser.getUser(username=username)
     userid,uname,utype = new_getUser.getUserInfo_CallBack()
     res = jsonify({'userid': userid, "uname": uname, "utype": utype})
+    return res
+
+
+@app.route('/getUserTodo', methods=["POST"])
+def getUserTodo():
+    username = request.form["name"]
+    new_getTodo = getUser.getUser(username=username)
+    res = new_getTodo.getTodo()
     return res

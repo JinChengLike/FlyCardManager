@@ -1,7 +1,8 @@
 import MySQLdb
+import json
 
 class getUser():
-    def __init__(self,username):
+    def __init__(self, username):
         self.username = username
         self.conn = MySQLdb.connect(
             host="127.0.0.1",
@@ -30,7 +31,7 @@ class getUser():
         cur.execute(sql)
         rs = cur.fetchone()
         userid = rs[0]
-        uname =rs[1]
+        uname = rs[1]
         utype = rs[3]
         cur.close()
         self.conn.close()
@@ -45,7 +46,10 @@ class getUser():
         self.conn.close()
         return rs
 
-
-if __name__ == "__main__":
-    aa = getUser(username="jincheng")
-    f = aa.getTodo_CallBack()
+    def getTodo(self):
+        aa = getUser(self.username)
+        f = aa.getTodo_CallBack()
+        a = []
+        for row in f:
+            a.append("%s,%s,%s,%s,%s,%s" % row)
+        return json.dumps(a)
