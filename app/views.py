@@ -1,6 +1,6 @@
 from app import app
 from flask import render_template, jsonify, request
-from app import login_model, getUser
+from app import login_model, getUser, card_models
 
 
 @app.route('/')
@@ -62,4 +62,26 @@ def getUserTodo():
     username = request.form["name"]
     new_getTodo = getUser.getUser(username=username)
     res = new_getTodo.getTodo()
+    return res
+
+
+@app.route('/saveCardInfo', methods=["POST"])
+def saveCardInfo():
+    userid = request.form["userId"]
+    doData = request.form["doData"]
+    workName = request.form["workName"]
+    workTime = request.form["workTime"]
+    planeType = request.form["planeType"]
+    planeNo = request.form["planeNo"]
+    fixArea = request.form["fixArea"]
+    fixPart = request.form["fixPart"]
+    needPart = request.form["needPart"]
+    needTools = request.form["needTools"]
+    workDetail = request.form["workDetail"]
+    prepareNotice = request.form["prepareNotice"]
+    workNotice = request.form["workNotice"]
+    workWay = request.form["workWay"]
+    new_save = card_models.Card_Model(userid,doData,workName,workTime,planeType,planeNo,fixArea,fixPart,needPart,needTools,workDetail,prepareNotice,workNotice,workWay)
+    result = new_save.SaveCardInfo()
+    res = jsonify({"result":result})
     return res
