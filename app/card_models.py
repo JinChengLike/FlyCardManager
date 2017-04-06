@@ -3,8 +3,8 @@ import MySQLdb
 import time
 
 class Card_Model():
-    def __init__(self,userId,doData,workName,workTime,planeType,planeNo,fixArea,fixPart,needPart,needTools,workDetail,prepareNotice,workNotice,workWay):
-        self.userId = userId
+    def __init__(self,username,doData,workName,workTime,planeType,planeNo,fixArea,fixPart,needPart,needTools,workDetail,prepareNotice,workNotice,workWay):
+        self.username = username
         self.doData = doData
         self.workName = workName
         self.workTime = workTime
@@ -33,12 +33,12 @@ class Card_Model():
         return cursor
 
     def _saveSql(self):
-        temp = "insert into card (userid,creatdata,dodata,workname,worktime,planetype,planeno,fixarea,fixpart"
+        temp = "insert into card (username,creatdata,dodata,workname,worktime,planetype,planeno,fixarea,fixpart"
         sql = temp + ",needpart,needtools,workdetail,preparenotice,worknotice,workway) values ("
-        val_temp = sql + self.userId + ",'" + self.creatdata + "','" + self.doData + "','" + self.workName + "','" + self.workTime + "','" + self.planeType + "','"
+        val_temp = sql + self.username + ",'" + self.creatdata + "','" + self.doData + "','" + self.workName + "','" + self.workTime + "','" + self.planeType + "','"
         val = val_temp + self.planeNo + "','" + self.fixArea + "','" + self.fixPart + "','" + self.needPart + "','" + self.needTools + "','" + self.workDetail + "','" + self.prepareNotice + "','" + self.workNotice + "','" + self.workWay + "');"
-        print val
         return val
+
 
     def SaveCardInfo(self):
         sql = self._saveSql()

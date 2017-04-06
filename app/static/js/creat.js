@@ -15,7 +15,7 @@ $(document).ready(function(){
 $(document).ready(function() {
     $("#save").click(function() {
         $.post("/saveCardInfo",{
-            userId : localStorage.userId,
+            username : localStorage.username,
             doData : $("#do-data").val(),
             workName : $("#work-name").val(),
             workTime : $("#work-time").val(),

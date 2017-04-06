@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>工卡列表</title>
     <script src="/static/js/jquery-3.1.1.min.js"></script>
+    <script src="/static/js/factory.js"></script>
     <script src="/static/js/show_list.js"></script>
     <script src="/static/js/tab.js"></script>
     <script src="/static/css/dist/js/bootstrap.min.js"></script>
@@ -26,55 +27,15 @@
     <table class="table table-striped">
         <thead>
         <tr>
+            <th>工卡号</th>
             <th>创建日期</th>
             <th>执行日期</th>
-            <th>工卡号</th>
-            <th>航班号</th>
-            <th>机型</th>
-            <th>创建者</th>
-            <th>施工者</th>
-            <th>工时</th>
+            <th>待执行者</th>
             <th>状态</th>
             <th>操作</th>
         </tr>
         </thead>
         <tbody>
-        <tr>
-            <td>2017-03-27</td>
-            <td>2017-03-28</td>
-            <td>560001</td>
-            <td>MF2048</td>
-            <td>B747</td>
-            <td>金程</td>
-            <td>金富帅</td>
-            <td>2</td>
-            <td>进行中</td>
-            <td><a data-toggle="modal" data-target="#todo">查看</a></td>
-        </tr>
-        <tr>
-            <td>2017-03-27</td>
-            <td>2017-03-28</td>
-            <td>560001</td>
-            <td>MF2048</td>
-            <td>B747</td>
-            <td>金程</td>
-            <td>金富帅</td>
-            <td>2</td>
-            <td>待进行</td>
-            <td><a>查看</a></td>
-        </tr>
-        <tr>
-            <td>2017-03-27</td>
-            <td>2017-03-28</td>
-            <td>560001</td>
-            <td>MF2048</td>
-            <td>B747</td>
-            <td>金程</td>
-            <td>金富帅</td>
-            <td>2</td>
-            <td>已完成</td>
-            <td><a>查看</a></td>
-        </tr>
         </tbody>
     </table>
 </div>
@@ -89,39 +50,45 @@
 
             <div class="modal-body">
                 <p>
-                    <label>创建日期:</label>&nbsp<span>2017-03-27</span>&nbsp&nbsp
-                    <label>执行日期:</label>&nbsp<span>2017-03-28</span>
+                    <label>创建日期:</label>&nbsp<span id="creat-data"></span>&nbsp&nbsp
+                    <label>执行日期:</label>&nbsp<span id="do-data"></span>
                 </p>
                 <p>
-                    <label>创建者:</label>&nbsp<span>金程</span>&nbsp&nbsp
-                    <label>施工者:</label>&nbsp<span>金富帅</span>
+                    <label>创建者:</label>&nbsp<span id="creat-name"></span>&nbsp&nbsp
+                    <label>施工者:</label>&nbsp<span id="do-name"></span>
                 </p>
                 <p>
-                    <label>机型:</label>&nbsp<span>B747</span>&nbsp&nbsp
-                    <label>航班号:</label>&nbsp<span>MU2048</span>
+                    <label>机型:</label>&nbsp<span id="plane-no"></span>&nbsp&nbsp
+                    <label>航班号:</label>&nbsp<span id="fly-no"></span>
                 </p>
                 <p>
-                    <label>维修区域:</label>&nbsp<span>起落架</span>&nbsp&nbsp
-                    <label>待维修部件:</label>&nbsp<span>轮胎充气</span>
+                    <label>维修区域:</label>&nbsp<span id="fix-area"></span>&nbsp&nbsp
+                    <label>待维修部件:</label>&nbsp<span id="fix-part"></span>
                 </p>
                 <p>
-                    <label>所需航材:</label>&nbsp<span>么有</span>&nbsp&nbsp
-                    <label>所需工具:</label>&nbsp<span>打气筒</span>
+                    <label>所需航材:</label>&nbsp<span id="need-part"></span>&nbsp&nbsp
+                    <label>所需工具:</label>&nbsp<span id="need-tools"></span>
                 </p>
                 <p>
-                    <label>工时:</label>&nbsp<span>2h</span>
+                    <label>工时:</label>&nbsp<span id="time"></span>
                 </p>
                 <p>
-                    <label>工作要求:</label>&nbsp<span>紧擦舒服哈犯法吗哦哈佛啊输送哈所发哈事故功能难道就能感受到你发誓减肥奶粉觉得你是女撒娇你发那份撒上的女你说了</span>
+                    <label>工作要求:</label>&nbsp<span id="work-detail"></span>
                 </p>
                 <p>
-                    <label>注意事项:</label>&nbsp<span>紧擦舒服哈犯法吗哦哈佛啊输送哈所发哈事故功能难道就能感受到你发誓减肥奶粉觉得你是女撒娇你发那份撒上的女你说了</span>
+                    <label>施工准备风险点:</label>&nbsp<span id="preapare-notice"></span>
+                </p>
+                 <p>
+                    <label>施工风险点:</label>&nbsp<span id="work-notice"></span>
+                </p>
+                 <p>
+                    <label>施工技巧:</label>&nbsp<span id="work-way"></span>
                 </p>
             </div>
 
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-                <button type="button" class="btn btn-primary">确认执行</button>
+                <button type="button" class="btn btn-primary" id="confirm-btn">确认执行</button>
             </div>
         </div><!-- /.modal-content -->
     </div><!-- /.modal -->

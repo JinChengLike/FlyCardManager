@@ -1,6 +1,6 @@
 from app import app
 from flask import render_template, jsonify, request
-from app import login_model, getUser, card_models
+from app import login_model, getUser, card_models, TodoList, cardSearch
 
 
 @app.route('/')
@@ -52,7 +52,7 @@ def check_register():
 def getUserInfo():
     username = request.form["name"]
     new_getUser = getUser.getUser(username=username)
-    userid,uname,utype = new_getUser.getUserInfo_CallBack()
+    userid, uname, utype = new_getUser.getUserInfo_CallBack()
     res = jsonify({'userid': userid, "uname": uname, "utype": utype})
     return res
 
@@ -67,7 +67,7 @@ def getUserTodo():
 
 @app.route('/saveCardInfo', methods=["POST"])
 def saveCardInfo():
-    userid = request.form["userId"]
+    username = request.form["username"]
     doData = request.form["doData"]
     workName = request.form["workName"]
     workTime = request.form["workTime"]
@@ -81,7 +81,29 @@ def saveCardInfo():
     prepareNotice = request.form["prepareNotice"]
     workNotice = request.form["workNotice"]
     workWay = request.form["workWay"]
-    new_save = card_models.Card_Model(userid,doData,workName,workTime,planeType,planeNo,fixArea,fixPart,needPart,needTools,workDetail,prepareNotice,workNotice,workWay)
+    new_save = card_models.Card_Model(username, doData, workName, workTime, planeType, planeNo, fixArea, fixPart,
+                                      needPart, needTools, workDetail, prepareNotice, workNotice, workWay)
     result = new_save.SaveCardInfo()
-    res = jsonify({"result":result})
+    res = jsonify({"result": result})
+    return res
+
+
+@app.route('/getTodoList', methods=["POST"])
+def getTodoList():
+    username = request.form["username"]
+    new_TodoList = TodoList.TodoList(username)
+    res = new_TodoList.getTodoList()
+    return res
+
+
+@app.route('/getCardDetail', methods=["POST"])
+def getCardDetail():
+    id = request.form["id"]
+    new_search = cardSearch.CardSearch(id)
+    result = new_search.getDetail()
+    res = jsonify(
+        {"id": result[0], "creatname": result[1], "creattime": result[2], "todotime": result[3], "workname": result[4],
+         "time": result[5], "planeno": result[6], "flyno": result[7], "fixarea": result[8], "fixpart": result[9],
+         "needpart": result[10], "needtools": result[11], "workdetail": result[12], "preparenotix": result[13],
+         "worknotice": result[14], "workway": result[15]})
     return res
