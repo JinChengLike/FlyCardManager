@@ -12,6 +12,24 @@ $(document).ready(function(){
 })
 
 $(document).ready(function(){
+    $("#confirm-btn").click(function(){
+        $.post("/confirm_do",{
+            id : $("#c-no").text(),
+            utype : localStorage.utype
+            uname : localStorage.username
+        },function(data){
+            if(data.result == 0){
+                alert("执行已确认，请前往处理中的工卡中查看");
+                $("#todo").modal('hide');
+            }
+            else{
+                alert("执行发生错误");
+            }
+        })
+    })
+})
+
+$(document).ready(function(){
     var html = "";
     username = localStorage.username;
     $.post("/getTodoList",{
@@ -21,7 +39,8 @@ $(document).ready(function(){
         for(var i=0;i<data.length;i++){
             str = data[i]
             temp = str.split(",");
-            html = html + "<tr onclick='det(this)'><td class='no'>" + temp[4] +"</td><td>" + temp[2] + "</td><td>" + temp[3] + "</td><td>" + temp[1] + "</td><td>" + temp[5] +"</td><td><a data-toggle='modal' data-target='#todo'>查看</a></td></tr>";
+            temp[5] =handle_status(temp[5])
+            html = html + "<tr onclick='det(this)'><td class='no'>" + temp[4] +"</td><td>" + temp[2] + "</td><td>" + temp[3] + "</td><td>" + temp[1] + "</td><td class='status'>" + temp[5] +"</td><td><a data-toggle='modal' data-target='#todo'>查看</a></td></tr>";
         }
         $("tbody").html(html);
     })
@@ -31,10 +50,19 @@ $(document).ready(function(){
 function det(t){
       var idx = $(t).index();
       a = "td.no:eq(" + idx + ")";
+      status = "td.status:eq(" + idx + ")";
+      status = $(status).text();
+      if(status == "航材准备中" || status=="工卡执行中" || status=="工卡已完成"){
+        $("#confirm-btn").hide();
+      }
+      else{
+        $("#confirm-btn").show();
+      }
       no_list = $(a).text();
       $.post("/getCardDetail",{
            id:no_list
       },function(data){
+          $("#c-no").text(data.id);
           $("#creat-data").text(data.creattime);
           $("#do-data").text(data.todotime);
           $("#creat-name").text(data.creatname);

@@ -34,8 +34,8 @@ class Card_Model():
 
     def _saveSql(self):
         temp = "insert into card (username,creatdata,dodata,workname,worktime,planetype,planeno,fixarea,fixpart"
-        sql = temp + ",needpart,needtools,workdetail,preparenotice,worknotice,workway) values ("
-        val_temp = sql + self.username + ",'" + self.creatdata + "','" + self.doData + "','" + self.workName + "','" + self.workTime + "','" + self.planeType + "','"
+        sql = temp + ",needpart,needtools,workdetail,preparenotice,worknotice,workway) values ('"
+        val_temp = sql + self.username + "','" + self.creatdata + "','" + self.doData + "','" + self.workName + "','" + self.workTime + "','" + self.planeType + "','"
         val = val_temp + self.planeNo + "','" + self.fixArea + "','" + self.fixPart + "','" + self.needPart + "','" + self.needTools + "','" + self.workDetail + "','" + self.prepareNotice + "','" + self.workNotice + "','" + self.workWay + "');"
         return val
 

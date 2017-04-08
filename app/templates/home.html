@@ -61,75 +61,79 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h4 class="modal-title">修改工卡</h4>
+                <h4 class="modal-title">任务查看</h4>
             </div>
             <div class="modal-body">
                 <form class="bs-example bs-example-form" role="form">
                     <div class="input-group">
                         <label class="input-group-addon">执行日期</label>
-                        <input type="text" class="form-control" placeholder="20XX-XX-XX">
+                        <input type="text" class="form-control" id="do-data">
                     </div>
                     <br>
                     <div class="input-group">
                         <label class="input-group-addon">施工人</label>
-                        <input type="text" class="form-control" placeholder="请输入施工者姓名">
+                        <input type="text" class="form-control" id="do-name">
                     </div>
                     <br>
                     <div class="input-group">
                         <label class="input-group-addon">所需工时</label>
-                        <input type="text" class="form-control">
+                        <input type="text" class="form-control" id="time">
                         <label class="input-group-addon">小时</label>
                     </div>
                     <br>
                     <div class="input-group">
                         <label class="input-group-addon">机型</label>
-                        <input type="text" class="form-control" placeholder="请输入机型">
+                        <input type="text" class="form-control" id="plane-no">
                     </div>
                     <br>
                     <div class="input-group">
                         <label class="input-group-addon">航班号</label>
-                        <input type="text" class="form-control" placeholder="请输入航班号">
+                        <input type="text" class="form-control" id="fly-no">
                     </div>
                     <br>
                     <div class="input-group">
                         <label class="input-group-addon">维修区域</label>
-                        <input type="text" class="form-control" placeholder="请输入维修区域">
+                        <input type="text" class="form-control" id="fix-area">
                     </div>
                     <br>
                     <div class="input-group">
                         <label class="input-group-addon">待维修部件</label>
-                        <input type="text" class="form-control" placeholder="请输入待维修部件">
+                        <input type="text" class="form-control" id="fix-part">
                     </div>
                     <br>
                     <div class="input-group">
                         <label class="input-group-addon">所需航材</label>
-                        <input type="text" class="form-control" placeholder="请输入所需要的航材名">
+                        <input type="text" class="form-control" id="need-part">
                     </div>
                     <br>
                     <div class="input-group">
                         <label class="input-group-addon">所需工具</label>
-                        <input type="text" class="form-control" placeholder="请输入需要的工具">
+                        <input type="text" class="form-control" id="need-tools">
                     </div>
                 </form>
                 <br>
                 <form role="form" style="margin:20px">
                     <div class="form-group">
                         <label for="work-detail">工作要求</label>
-                        <textarea class="form-control" rows="3" id="work-detail"></textarea>
+                        <textarea class="form-control" rows="2" id="work-detail"></textarea>
                     </div>
                     <div class="form-group">
-                        <label for="work-notice">注意事项</label>
-                        <textarea class="form-control" rows="3" id="work-notice"></textarea>
+                        <label for="work-notice">施工准备风险点</label>
+                        <textarea class="form-control" rows="2" id="prepare-notice"></textarea>
                     </div>
                     <div class="form-group">
-                        <label for="return-message">反馈信息</label>
-                        <textarea class="form-control" rows="3" id="return-message"></textarea>
+                        <label for="work-notice">施工风险点</label>
+                        <textarea class="form-control" rows="2" id="work-notice"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="work-notice">施工技巧</label>
+                        <textarea class="form-control" rows="2" id="work-way"></textarea>
                     </div>
                 </form>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-                <button type="button" class="btn btn-primary" id="btn-login">确定</button>
+                <button type="button" class="btn btn-primary" id="confirm" >确定</button>
             </div>
         </div>
     </div>

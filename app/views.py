@@ -1,6 +1,6 @@
 from app import app
 from flask import render_template, jsonify, request
-from app import login_model, getUser, card_models, TodoList, cardSearch
+from app import login_model, getUser, card_models, TodoList, cardSearch, confirm, getMargin
 
 
 @app.route('/')
@@ -106,4 +106,33 @@ def getCardDetail():
          "time": result[5], "planeno": result[6], "flyno": result[7], "fixarea": result[8], "fixpart": result[9],
          "needpart": result[10], "needtools": result[11], "workdetail": result[12], "preparenotix": result[13],
          "worknotice": result[14], "workway": result[15]})
+    return res
+
+
+@app.route('/confirm_do', methods=["POST"])
+def confirm_do():
+    id = request.form["id"]
+    type = request.form["utype"]
+    name = request.form["uname"]
+    new_confirm = confirm.Confirm(id, type, name)
+    result = new_confirm.confirm_do()
+    res = jsonify({"result": result})
+    return res
+
+
+@app.route('/confirm_over', methods=["POST"])
+def confirm_over():
+    id = request.form["id"]
+    type = request.form["utype"]
+    name = request.form["uname"]
+    new_confirm = confirm.Confirm(id, type, name)
+    result = new_confirm.confirm_over()
+    res = jsonify({"result": result})
+    return res
+
+
+@app.route('/getMarginList', methods=["GET"])
+def getMarginList():
+    new_getMargin = getMargin.Margin().getMarginList()
+    res = new_getMargin
     return res

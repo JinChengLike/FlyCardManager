@@ -4,14 +4,14 @@
     <meta charset="UTF-8">
     <title>工卡创建</title>
     <script src="/static/js/jquery-3.1.1.min.js"></script>
-    <script src="/static/js/factory.js"></script>
-    <script src="/static/js/creat.js"></script>
-    <script src="/static/js/tab.js"></script>
     <script src="/static/css/dist/js/bootstrap.min.js"></script>
     <link href="/static/css/dist/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
     <link href="/static/css/dist/css/bootstrap-theme.min.css" rel="stylesheet" type="text/css"/>
     <link href="/static/css/creat.css" rel="stylesheet" type="text/css"/>
     <link href="/static/css/tab.css" rel="stylesheet" type="text/css"/>
+    <script src="/static/js/factory.js"></script>
+    <script src="/static/js/creat.js"></script>
+    <script src="/static/js/tab.js"></script>
 </head>
 <body>
 <div class="container" id="nav">
@@ -25,7 +25,9 @@
 </div>
 <div class="container" id="creat-form">
     <div class="row">
-        <div class="col-md-1"></div>
+        <div class="col-md-1">
+            <button type="button" class="btn btn-primary btn-sm" id="check">查看库存</button>
+        </div>
         <div class="col-md-4">
             <div style="margin:50px 0px 100px 0px">
                 <form class="bs-example bs-example-form" role="form">
@@ -103,6 +105,31 @@
         </div>
     </div>
 
+</div>
+<div class="modal fade" id="showModel" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel">航材工具余量</h4>
+            </div>
+            <div class="modal-body">
+                <div id="materal">
+                    <p>工具库存状况</p>
+                    <div id="tools-num">
+                    </div>
+                </div>
+                <div id="tools">
+                    <p>航材库存状况</p>
+                    <div id="material-num">
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal -->
 </div>
 </body>
 </html>

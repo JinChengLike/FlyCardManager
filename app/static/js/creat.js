@@ -36,3 +36,29 @@ $(document).ready(function() {
         })
     })
 })
+
+
+$(document).ready(function() {
+    $("#check").click(function(){
+        var html="";
+        $.get('/getMarginList',function(data){
+            data = JSON.parse(data);
+            material = data[0];
+            tools = data[1];
+            for(var i=0;i<material.length;i++){
+                str = material[i]
+                temp = str.split(",");
+                html = html + "<label>" + temp[0] + "  " + temp[1] + "</label>&nbsp;&nbsp;";
+            }
+            $("#material-num").html(html);
+            html = "";
+            for(var i=0;i<tools.length;i++){
+                str = tools[i]
+                temp = str.split(",");
+                html = html + "<label>" + temp[0] + "  " + temp[1] + "</label>&nbsp;&nbsp;";
+            }
+            $("#tools-num").html(html);
+        })
+        $("#showModel").modal('show');
+    })
+ })

@@ -17,3 +17,22 @@ function handle_type(utype){
     }
     return a;
 }
+
+
+function handle_status(status){
+    if(status==0){
+        return "航材待准备"
+    }
+    else if(status==1){
+        return "航材准备中"
+    }
+    else if(status==2){
+        return "工卡待执行"
+    }
+    else if(status==3){
+        return "工卡执行中"
+    }
+    else if(status==4){
+        return "工卡已完成"
+    }
+}
