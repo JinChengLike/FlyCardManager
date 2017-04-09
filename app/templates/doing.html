@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <title>正在执行的工卡</title>
     <script src="/static/js/jquery-3.1.1.min.js"></script>
-    <script src="/static/js/doing.js"></script>
     <script src="/static/js/factory.js"></script>
     <script src="/static/js/tab.js"></script>
+    <script src="/static/js/doing.js"></script>
     <script src="/static/css/dist/js/bootstrap.min.js"></script>
     <link href="/static/css/dist/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
     <link href="/static/css/dist/css/bootstrap-theme.min.css" rel="stylesheet" type="text/css"/>
@@ -85,10 +85,17 @@
                  <p>
                     <label>施工技巧:</label>&nbsp<span id="work-way"></span>
                 </p>
+                <p>
+                    <label>问题反馈:</label>
+                    <textarea rows="3" class="form-control">
+
+                    </textarea>
+                </p>
             </div>
 
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                <button type="button" class="btn btn-primary" id="callback">问题反馈</button>
                 <button type="button" class="btn btn-primary" id="confirm-btn">确认执行</button>
             </div>
         </div><!-- /.modal-content -->

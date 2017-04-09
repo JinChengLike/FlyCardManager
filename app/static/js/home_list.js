@@ -14,9 +14,6 @@ $(document).ready(function(){
 
 $(document).ready(function(){
     var html = ""
-    if(localStorage.utype!=1){
-        $("#confirm").hide();
-    }
     username = localStorage.username;
     $.post("/getUserTodo",{
         name:username
@@ -31,7 +28,7 @@ $(document).ready(function(){
             else if(localStorage.utype == 2){
                 html = html + "<dd class='c-id'>【"+ temp[4] + "】工卡需要准备航材 <a id='"+temp[4]+"' onclick='look(this)' data-toggle='modal' data-target='#login'>查看</a></dd>";
             }
-            else if(localStorage.utype == 3){
+            else if(localStorage.utype == 3 && temp[5]!=4){
                 html = html +"<dd class='c-id'>【"+ temp[4] + "】工卡等待执行 <a id='"+temp[4]+"' onclick='look(this)' data-toggle='modal' data-target='#login'>查看</a></dd>";
             }
         }
@@ -39,12 +36,56 @@ $(document).ready(function(){
     })
 })
 
+
+$(document).ready(function(){
+    $("#confirm").click(function(){
+        $.post("/updateCardInfo",{
+            id : $("#card-id").text(),
+            username : localStorage.username,
+            doData : $("#do-data").val(),
+            workName : $("#do-name").val(),
+            workTime : $("#time").val(),
+            planeType : $("#plane-no").val(),
+            planeNo : $("#fly-no").val(),
+            fixArea : $("#fix-area").val(),
+            fixPart : $("#fix-part").val(),
+            needPart : $("#need-part").val(),
+            needTools : $("#need-tools").val(),
+            workDetail : $("#work-detail").val(),
+            prepareNotice : $("#prepare-notice").val(),
+            workNotice : $("#work-notice").val(),
+            workWay : $("#work-way").val()
+        },function(data){
+            if(data.result == 0){
+                alert("修改已完成，已提交给工作人员");
+                $("#todo").modal('hide');
+            }
+            else{
+                alert("执行发生错误");
+            }
+        })
+
+    })
+})
+
+
 function look(t){
-      var id = $(t).attr('id'); ;
+      var id = $(t).attr('id');
+      if(localStorage.utype!=1){
+        $("#confirm").hide();
+      }
+      $("#card-id").text(id);
+      if(localStorage.utype==1){
+        $.post("/getCall",{
+            id:id
+        },function(data){
+            alert(data.result);
+        })
+      }
       $.post("/getCardDetail",{
          id:id
       },function(data){
-         $("#creat-data").val(data.creattime);
+          $("#creat-data").val(data.creattime);
           $("#do-data").val(data.todotime);
           $("#creat-name").val(data.creatname);
           $("#do-name").val(data.workname);

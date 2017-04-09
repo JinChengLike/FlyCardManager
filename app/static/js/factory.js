@@ -14,6 +14,7 @@ function handle_type(utype){
     else if(utype == 3){
         localStorage.utype = 3;
         a = "施工者";
+        $("#creat").hide()
     }
     return a;
 }
@@ -34,5 +35,8 @@ function handle_status(status){
     }
     else if(status==4){
         return "工卡已完成"
+    }
+    else if(status==6){
+        return "工卡反馈中"
     }
 }

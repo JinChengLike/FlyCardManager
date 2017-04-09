@@ -15,12 +15,13 @@ $(document).ready(function(){
     $("#confirm-btn").click(function(){
         $.post("/confirm_do",{
             id : $("#c-no").text(),
-            utype : localStorage.utype
+            utype : localStorage.utype,
             uname : localStorage.username
         },function(data){
             if(data.result == 0){
                 alert("执行已确认，请前往处理中的工卡中查看");
                 $("#todo").modal('hide');
+                window.location.reload();
             }
             else{
                 alert("执行发生错误");

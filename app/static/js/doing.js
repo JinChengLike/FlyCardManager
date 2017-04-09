@@ -14,6 +14,10 @@ $(document).ready(function(){
 
 $(document).ready(function(){
     var html = "";
+    if(localStorage.utype!=3){
+        $("#callback").hide();
+        $("textarea").hide();
+    }
     username = localStorage.username;
     $.post("/getTodoList",{
         username : username
@@ -69,12 +73,38 @@ $(document).ready(function(){
             uname : $("#do-name").text()
         },function(data){
             if(data.result == 0){
-                alert("执行已确认，请前往处理中的工卡中查看");
+                alert("执行已完成");
                 $("#todo").modal('hide');
+                window.location.reload();
             }
             else{
                 alert("执行发生错误");
             }
         })
+    })
+})
+
+$(document).ready(function(){
+    $("#callback").click(function(){
+        contant = $("textarea").val();
+        if(contant==""){
+            return 0
+        }
+        else{
+            $.post('/callBack',{
+                id: $("#c-no").text(),
+                contant: contant,
+                username: $("#creat-name").text()
+            },function(data){
+                if(data.result == 0){
+                    alert("反馈已提交");
+                    $("#todo").modal('hide');
+                    window.location.reload();
+                }
+                else{
+                    alert("执行发生错误");
+                }
+            })
+        }
     })
 })

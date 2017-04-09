@@ -1,6 +1,6 @@
 from app import app
 from flask import render_template, jsonify, request
-from app import login_model, getUser, card_models, TodoList, cardSearch, confirm, getMargin
+from app import login_model, getUser, card_models, TodoList, cardSearch, confirm, getMargin, call, updateC
 
 
 @app.route('/')
@@ -135,4 +135,53 @@ def confirm_over():
 def getMarginList():
     new_getMargin = getMargin.Margin().getMarginList()
     res = new_getMargin
+    return res
+
+
+@app.route('/callBack', methods=["POST"])
+def callBack():
+    id = request.form["id"]
+    contant = request.form["contant"]
+    username = request.form["username"]
+    new_callBack = call.Call(id, contant, username).insert()
+    result = new_callBack
+    res = jsonify({"result": result})
+    return res
+
+
+@app.route('/getCall', methods=["POST"])
+def getCall():
+    id = request.form["id"]
+    new_getCall = call.getCall(id).getCall()
+    res = jsonify({"result": new_getCall})
+    return res
+
+
+@app.route('/updateCardInfo', methods=["POST"])
+def updateCard():
+    id = request.form["id"]
+    username = request.form["username"]
+    doData = request.form["doData"]
+    workName = request.form["workName"]
+    workTime = request.form["workTime"]
+    planeType = request.form["planeType"]
+    planeNo = request.form["planeNo"]
+    fixArea = request.form["fixArea"]
+    fixPart = request.form["fixPart"]
+    needPart = request.form["needPart"]
+    needTools = request.form["needTools"]
+    workDetail = request.form["workDetail"]
+    prepareNotice = request.form["prepareNotice"]
+    workNotice = request.form["workNotice"]
+    workWay = request.form["workWay"]
+    new_updateCard = updateC.Card_Up(id, username, doData, workName, workTime, planeType, planeNo, fixArea,
+                                     fixPart, needPart, needTools, workDetail, prepareNotice, workNotice, workWay)
+    result_1 = new_updateCard.UpdateCardInfo()
+    result_2 = new_updateCard.UpdateTodoUser()
+    result_3 = new_updateCard.DeleteCall()
+    if (result_1 == 0 and result_2 == 0 and result_3 == 0):
+        result = 0
+    else:
+        result = 1
+    res = jsonify({"result": result})
     return res
