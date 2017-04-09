@@ -27,10 +27,6 @@ class Call():
         sql = "update todo set status = 6,username = '" + self.username + "' where detail='" + self.id + "';"
         return sql
 
-    def _delSql(self):
-        sql = "delete from callback where id =" + self.id + ";"
-        return sql
-
     def insert(self):
         sql = self._sql()
         u_sql = self._updatesql()
