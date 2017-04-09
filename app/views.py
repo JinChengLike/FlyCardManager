@@ -179,7 +179,7 @@ def updateCard():
     result_1 = new_updateCard.UpdateCardInfo()
     result_2 = new_updateCard.UpdateTodoUser()
     result_3 = new_updateCard.DeleteCall()
-    if (result_1 == 0 and result_2 == 0 and result_3 == 0):
+    if (result_1 == 0 and result_2 == 0 and result_3== 0):
         result = 0
     else:
         result = 1
